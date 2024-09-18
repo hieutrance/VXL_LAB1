@@ -92,7 +92,6 @@ void Error_Handler(void);
 #define seg1_g_Pin GPIO_PIN_6
 #define seg1_g_GPIO_Port GPIOB
 #define seg2_a_Pin GPIO_PIN_7
-#define seg2_a_GPIO_Port GPIOB
 #define seg2_b_Pin GPIO_PIN_8
 #define seg2_b_GPIO_Port GPIOB
 #define seg2_c_Pin GPIO_PIN_9
