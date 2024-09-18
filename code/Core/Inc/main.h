@@ -64,6 +64,20 @@ void Error_Handler(void);
 #define LED_GREEN_Pin GPIO_PIN_7
 #define LED_GREEN_GPIO_Port GPIOA
 
+
+#define LED_RED_13_Pin GPIO_PIN_5
+#define LED_RED_13_GPIO_Port GPIOA
+#define LED_YELLOW_13_Pin GPIO_PIN_6
+#define LED_YELLOW_13_GPIO_Port GPIOA
+#define LED_GREEN_13_Pin GPIO_PIN_7
+#define LED_GREEN_13_GPIO_Port GPIOA
+#define LED_RED_24_Pin GPIO_PIN_8
+#define LED_RED_24_GPIO_Port GPIOA
+#define LED_YELLOW_24_Pin GPIO_PIN_9
+#define LED_YELLOW_24_GPIO_Port GPIOA
+#define LED_GREEN_24_Pin GPIO_PIN_10
+#define LED_GREEN_24_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 typedef enum {RED , YELLOW , GREEN} led_color_status;
 void init_exercise2();
@@ -71,6 +85,10 @@ void run_exercise2();
 void led_red_on();
 void led_yellow_on();
 void led_green_on();
+void init_exercise3();
+void run_exercise3();
+void set_lane_13(led_color_status status);
+void set_lane_24(led_color_status status);
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
