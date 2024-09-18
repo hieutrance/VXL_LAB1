@@ -341,16 +341,60 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+int time13=4, time24=2;
 
-  int counter = 0;
+  trafic_light_state state = state_13red_24green;
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter >= 10) counter = 0;
-	  counter++;
-	  display_7seg_led1(counter);
-	  display_7seg_led2(counter);
-	  HAL_Delay(1000);
+		switch(state){
+		case state_13red_24green:
+			set_lane_13(RED);
+			set_lane_24(GREEN);
+			control_7seg(1 , time13--);
+			control_7seg(2 , time24--);
+
+			if(time24<0){
+				state=state_24yellow;
+				time24 = 1;
+				}
+			break;
+		case state_24yellow:
+			set_lane_13(RED);
+			set_lane_24(YELLOW);
+			control_7seg(1 , time13--);
+			control_7seg(2 , time24--);
+			if(time24<0){
+				state = state_13green_24red;
+				time13 = 2;
+				time24 = 4;
+			}
+			break;
+		case state_13green_24red:
+			set_lane_13(GREEN);
+			set_lane_24(RED);
+			control_7seg(1 , time13--);
+			control_7seg(2 , time24--);
+			if(time13<0){
+				state = state_13yellow;
+				time13 = 1;
+			}
+			break;
+
+		case state_13yellow:
+			set_lane_13(YELLOW);
+			set_lane_24(RED);
+			control_7seg(1 , time13--);
+			control_7seg(2 , time24--);
+			if(time13<0){
+				state = state_13red_24green;
+				time13 = 4;
+				time24= 2;
+			}
+			break;
+		}
+		HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

@@ -92,6 +92,7 @@ void Error_Handler(void);
 #define seg1_g_Pin GPIO_PIN_6
 #define seg1_g_GPIO_Port GPIOB
 #define seg2_a_Pin GPIO_PIN_7
+#define seg2_a_GPIO_Port GPIOB
 #define seg2_b_Pin GPIO_PIN_8
 #define seg2_b_GPIO_Port GPIOB
 #define seg2_c_Pin GPIO_PIN_9
@@ -99,6 +100,8 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 typedef enum {RED , YELLOW , GREEN} led_color_status;
+typedef enum {state_13red_24green , state_24yellow, state_13green_24red,
+			  state_13yellow} trafic_light_state;
 
 void set_lane_13(led_color_status status);
 void set_lane_24(led_color_status status);

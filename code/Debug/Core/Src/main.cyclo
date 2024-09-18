@@ -2,7 +2,8 @@
 ../Core/Src/main.c:78:6:set_lane_24	5
 ../Core/Src/main.c:100:6:display_7seg_led1	11
 ../Core/Src/main.c:197:6:display_7seg_led2	11
-../Core/Src/main.c:300:5:main	2
-../Core/Src/main.c:350:6:SystemClock_Config	3
-../Core/Src/main.c:387:13:MX_GPIO_Init	1
-../Core/Src/main.c:441:6:Error_Handler	1
+../Core/Src/main.c:294:6:control_7seg	3
+../Core/Src/main.c:313:5:main	9
+../Core/Src/main.c:407:6:SystemClock_Config	3
+../Core/Src/main.c:444:13:MX_GPIO_Init	1
+../Core/Src/main.c:498:6:Error_Handler	1
