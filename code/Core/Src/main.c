@@ -54,6 +54,33 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void init_exercise1(){};
+int led_status = LED_ON;
+void led_on(){
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port , LED_RED_Pin, SET); 		   // TURN ON LED RED
+	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , RESET); // TURN OFF LED YELLOW
+}
+void led_off(){
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port , LED_RED_Pin, RESET); 		  // TURN OFF LED RED
+	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , SET);  // TURN ON LED YELLOW
+}
+
+void run_exercise1(){
+	switch(led_status){
+	case(LED_ON):
+		led_on();
+		led_status = LED_OFF;
+		HAL_Delay(2000);
+		break;
+	case(LED_OFF):
+		led_off();
+		led_status = LED_ON;
+		HAL_Delay(2000);
+		break;
+	default:
+		break;
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -95,7 +122,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+	  	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 	  	  HAL_Delay(2000);
 	  	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 

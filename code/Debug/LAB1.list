@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0000300c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000283a  00000000  00000000  00003035  2**0
+ 12 .debug_info   000028a6  00000000  00000000  00003035  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00000dfe  00000000  00000000  0000586f  2**0
+ 13 .debug_abbrev 00000e4a  00000000  00000000  000058db  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000003d0  00000000  00000000  00006670  2**3
+ 14 .debug_aranges 000003f0  00000000  00000000  00006728  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 000002b7  00000000  00000000  00006a40  2**0
+ 15 .debug_rnglists 000002cf  00000000  00000000  00006b18  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001556f  00000000  00000000  00006cf7  2**0
+ 16 .debug_macro  0001557b  00000000  00000000  00006de7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004960  00000000  00000000  0001c266  2**0
+ 17 .debug_line   000049cd  00000000  00000000  0001c362  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000798bb  00000000  00000000  00020bc6  2**0
+ 18 .debug_str    00079905  00000000  00000000  00020d2f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  0009a481  2**0
+ 19 .comment      00000043  00000000  00000000  0009a634  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000d2c  00000000  00000000  0009a4c4  2**2
+ 20 .debug_frame  00000da0  00000000  00000000  0009a678  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000060  00000000  00000000  0009b1f0  2**0
+ 21 .debug_line_str 00000060  00000000  00000000  0009b418  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -113,7 +113,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+	  	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
  800015c:	2140      	movs	r1, #64	@ 0x40
  800015e:	4806      	ldr	r0, [pc, #24]	@ (8000178 <main+0x2c>)
  8000160:	f000 fbf8 	bl	8000954 <HAL_GPIO_TogglePin>
@@ -124,7 +124,7 @@ int main(void)
  800016c:	2120      	movs	r1, #32
  800016e:	4802      	ldr	r0, [pc, #8]	@ (8000178 <main+0x2c>)
  8000170:	f000 fbf0 	bl	8000954 <HAL_GPIO_TogglePin>
-	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+	  	  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
  8000174:	bf00      	nop
  8000176:	e7f1      	b.n	800015c <main+0x10>
  8000178:	40010800 	.word	0x40010800

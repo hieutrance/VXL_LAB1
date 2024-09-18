@@ -63,6 +63,13 @@ void Error_Handler(void);
 #define LED_YELLOW_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
+#define LED_ON 1
+#define LED_OFF 0
+void init_exercise1();
+void run_exercise1();
+
+void led_on();
+void led_off();
 
 /* USER CODE END Private defines */
 
