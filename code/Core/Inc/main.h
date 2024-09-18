@@ -61,9 +61,16 @@ void Error_Handler(void);
 #define LED_RED_GPIO_Port GPIOA
 #define LED_YELLOW_Pin GPIO_PIN_6
 #define LED_YELLOW_GPIO_Port GPIOA
+#define LED_GREEN_Pin GPIO_PIN_7
+#define LED_GREEN_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
-
+typedef enum {RED , YELLOW , GREEN} led_color_status;
+void init_exercise2();
+void run_exercise2();
+void led_red_on();
+void led_yellow_on();
+void led_green_on();
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

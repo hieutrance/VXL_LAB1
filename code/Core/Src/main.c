@@ -54,6 +54,47 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void init_exercise2(){};
+
+void led_red_on(){
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port , LED_RED_Pin, SET);
+	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, RESET);
+	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port , LED_GREEN_Pin , RESET);
+}
+void led_yellow_on(){
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port , LED_RED_Pin, RESET);
+	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, SET);
+	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port , LED_GREEN_Pin , RESET);
+}
+void led_green_on(){
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port , LED_RED_Pin, RESET);
+	HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, RESET);
+	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port , LED_GREEN_Pin , SET);
+}
+
+led_color_status color_status = RED;
+void run_exercise2(){
+	switch(color_status){
+	case(RED):
+		led_red_on();
+		HAL_Delay(5000);
+		color_status = GREEN;
+		break;
+	case(YELLOW):
+		led_yellow_on();
+		HAL_Delay(2000);
+		color_status = RED;
+		break;
+	case(GREEN):
+		led_green_on();
+		HAL_Delay(3000);
+		color_status = YELLOW;
+		break;
+	default:
+		break;
+	}
+}
+
 
 /* USER CODE END 0 */
 
@@ -95,6 +136,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  run_exercise2();
 
     /* USER CODE BEGIN 3 */
   }
@@ -152,10 +194,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
+  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
