@@ -54,6 +54,48 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void set_lane_13(led_color_status status){
+	switch(status){
+	case(RED):
+		HAL_GPIO_WritePin(LED_RED_13_GPIO_Port , LED_RED_13_Pin , SET);
+		HAL_GPIO_WritePin(LED_YELLOW_13_GPIO_Port , LED_YELLOW_13_Pin , RESET);
+		HAL_GPIO_WritePin(LED_GREEN_13_GPIO_Port , LED_GREEN_13_Pin , RESET);
+		break;
+	case(YELLOW):
+		HAL_GPIO_WritePin(LED_RED_13_GPIO_Port , LED_RED_13_Pin , RESET);
+		HAL_GPIO_WritePin(LED_YELLOW_13_GPIO_Port , LED_YELLOW_13_Pin , SET);
+		HAL_GPIO_WritePin(LED_GREEN_13_GPIO_Port , LED_GREEN_13_Pin , RESET);
+		break;
+	case(GREEN):
+		HAL_GPIO_WritePin(LED_RED_13_GPIO_Port , LED_RED_13_Pin , RESET);
+		HAL_GPIO_WritePin(LED_YELLOW_13_GPIO_Port , LED_YELLOW_13_Pin , RESET);
+		HAL_GPIO_WritePin(LED_GREEN_13_GPIO_Port , LED_GREEN_13_Pin , SET);
+		break;
+	default:
+		break;
+	}
+}
+void set_lane_24(led_color_status status){
+	switch(status){
+	case(RED):
+		HAL_GPIO_WritePin(LED_RED_24_GPIO_Port , LED_RED_24_Pin , SET);
+		HAL_GPIO_WritePin(LED_YELLOW_24_GPIO_Port , LED_YELLOW_24_Pin , RESET);
+		HAL_GPIO_WritePin(LED_GREEN_24_GPIO_Port , LED_GREEN_24_Pin , RESET);
+		break;
+	case(YELLOW):
+		HAL_GPIO_WritePin(LED_RED_24_GPIO_Port , LED_RED_24_Pin , RESET);
+		HAL_GPIO_WritePin(LED_YELLOW_24_GPIO_Port , LED_YELLOW_24_Pin , SET);
+		HAL_GPIO_WritePin(LED_GREEN_24_GPIO_Port , LED_GREEN_24_Pin , RESET);
+		break;
+	case(GREEN):
+		HAL_GPIO_WritePin(LED_RED_24_GPIO_Port , LED_RED_24_Pin , RESET);
+		HAL_GPIO_WritePin(LED_YELLOW_24_GPIO_Port , LED_YELLOW_24_Pin , RESET);
+		HAL_GPIO_WritePin(LED_GREEN_24_GPIO_Port , LED_GREEN_24_Pin , SET);
+		break;
+	default:
+		break;
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -150,16 +192,44 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_13_Pin|LED_YELLOW_13_Pin|LED_GREEN_13_Pin|LED_RED_24_Pin
+                          |LED_YELLOW_24_Pin|LED_GREEN_24_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, seg1_a_Pin|seg1_b_Pin|seg1_c_Pin|seg2_d_Pin
+                          |seg2_e_Pin|seg2_f_Pin|seg2_g_Pin|seg1_d_Pin
+                          |seg1_e_Pin|seg1_f_Pin|seg1_g_Pin|seg2_a_Pin
+                          |seg2_b_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : LED_RED_13_Pin LED_YELLOW_13_Pin LED_GREEN_13_Pin LED_RED_24_Pin
+                           LED_YELLOW_24_Pin LED_GREEN_24_Pin */
+  GPIO_InitStruct.Pin = LED_RED_13_Pin|LED_YELLOW_13_Pin|LED_GREEN_13_Pin|LED_RED_24_Pin
+                          |LED_YELLOW_24_Pin|LED_GREEN_24_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : seg1_a_Pin seg1_b_Pin seg1_c_Pin seg2_d_Pin
+                           seg2_e_Pin seg2_f_Pin seg2_g_Pin seg1_d_Pin
+                           seg1_e_Pin seg1_f_Pin seg1_g_Pin seg2_a_Pin
+                           seg2_b_Pin */
+  GPIO_InitStruct.Pin = seg1_a_Pin|seg1_b_Pin|seg1_c_Pin|seg2_d_Pin
+                          |seg2_e_Pin|seg2_f_Pin|seg2_g_Pin|seg1_d_Pin
+                          |seg1_e_Pin|seg1_f_Pin|seg1_g_Pin|seg2_a_Pin
+                          |seg2_b_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : seg2_c_Pin */
+  GPIO_InitStruct.Pin = seg2_c_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  HAL_GPIO_Init(seg2_c_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
