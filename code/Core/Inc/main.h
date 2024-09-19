@@ -84,6 +84,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 void clearAllClock();
+void setNumberOnClock(int num);
 
 /* USER CODE END Private defines */
 
