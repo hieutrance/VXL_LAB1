@@ -65,58 +65,58 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	void clearAllClock(){
-		  HAL_GPIO_WritePin(d1_GPIO_Port , d1_Pin, RESET);
-		  HAL_GPIO_WritePin(d2_GPIO_Port , d2_Pin, RESET);
-		  HAL_GPIO_WritePin(d3_GPIO_Port , d3_Pin, RESET);
-		  HAL_GPIO_WritePin(d4_GPIO_Port , d4_Pin, RESET);
-		  HAL_GPIO_WritePin(d5_GPIO_Port , d5_Pin, RESET);
-		  HAL_GPIO_WritePin(d6_GPIO_Port , d6_Pin, RESET);
-		  HAL_GPIO_WritePin(d7_GPIO_Port , d7_Pin, RESET);
-		  HAL_GPIO_WritePin(d8_GPIO_Port , d8_Pin, RESET);
-		  HAL_GPIO_WritePin(d9_GPIO_Port , d9_Pin, RESET);
-		  HAL_GPIO_WritePin(d10_GPIO_Port , d10_Pin, RESET);
-		  HAL_GPIO_WritePin(d11_GPIO_Port , d11_Pin, RESET);
-		  HAL_GPIO_WritePin(d12_GPIO_Port , d12_Pin, RESET);
+	void setAllClock(){
+		  HAL_GPIO_WritePin(d1_GPIO_Port , d1_Pin, SET);
+		  HAL_GPIO_WritePin(d2_GPIO_Port , d2_Pin, SET);
+		  HAL_GPIO_WritePin(d3_GPIO_Port , d3_Pin, SET);
+		  HAL_GPIO_WritePin(d4_GPIO_Port , d4_Pin, SET);
+		  HAL_GPIO_WritePin(d5_GPIO_Port , d5_Pin, SET);
+		  HAL_GPIO_WritePin(d6_GPIO_Port , d6_Pin, SET);
+		  HAL_GPIO_WritePin(d7_GPIO_Port , d7_Pin, SET);
+		  HAL_GPIO_WritePin(d8_GPIO_Port , d8_Pin, SET);
+		  HAL_GPIO_WritePin(d9_GPIO_Port , d9_Pin, SET);
+		  HAL_GPIO_WritePin(d10_GPIO_Port , d10_Pin, SET);
+		  HAL_GPIO_WritePin(d11_GPIO_Port , d11_Pin, SET);
+		  HAL_GPIO_WritePin(d12_GPIO_Port , d12_Pin, SET);
 	}
 
-	void setNumberOnClock(int num){
+	void clearNumberOnClock(int num){
 		switch(num){
 		case 1:
-			HAL_GPIO_WritePin(d1_GPIO_Port , d1_Pin, SET);
+			HAL_GPIO_WritePin(d1_GPIO_Port , d1_Pin, RESET);
 			break;
 		case 2:
-			HAL_GPIO_WritePin(d2_GPIO_Port , d2_Pin, SET);
+			HAL_GPIO_WritePin(d2_GPIO_Port , d2_Pin, RESET);
 			break;
 		case 3:
-			HAL_GPIO_WritePin(d3_GPIO_Port , d3_Pin, SET);
+			HAL_GPIO_WritePin(d3_GPIO_Port , d3_Pin, RESET);
 			break;
 		case 4:
-			HAL_GPIO_WritePin(d4_GPIO_Port , d4_Pin, SET);
+			HAL_GPIO_WritePin(d4_GPIO_Port , d4_Pin, RESET);
 			break;
 		case 5:
-			HAL_GPIO_WritePin(d5_GPIO_Port , d5_Pin, SET);
+			HAL_GPIO_WritePin(d5_GPIO_Port , d5_Pin, RESET);
 			break;
 		case 6:
-			HAL_GPIO_WritePin(d6_GPIO_Port , d6_Pin, SET);
+			HAL_GPIO_WritePin(d6_GPIO_Port , d6_Pin, RESET);
 			break;
 		case 7:
-			HAL_GPIO_WritePin(d7_GPIO_Port , d7_Pin, SET);
+			HAL_GPIO_WritePin(d7_GPIO_Port , d7_Pin, RESET);
 			break;
 		case 8:
-			HAL_GPIO_WritePin(d8_GPIO_Port , d8_Pin, SET);
+			HAL_GPIO_WritePin(d8_GPIO_Port , d8_Pin, RESET);
 			break;
 		case 9:
-			HAL_GPIO_WritePin(d9_GPIO_Port , d9_Pin, SET);
+			HAL_GPIO_WritePin(d9_GPIO_Port , d9_Pin, RESET);
 			break;
 		case 10:
-			HAL_GPIO_WritePin(d10_GPIO_Port , d10_Pin, SET);
+			HAL_GPIO_WritePin(d10_GPIO_Port , d10_Pin, RESET);
 			break;
 		case 11:
-			HAL_GPIO_WritePin(d11_GPIO_Port , d11_Pin, SET);
+			HAL_GPIO_WritePin(d11_GPIO_Port , d11_Pin, RESET);
 			break;
 		case 12:
-			HAL_GPIO_WritePin(d12_GPIO_Port , d12_Pin, SET);
+			HAL_GPIO_WritePin(d12_GPIO_Port , d12_Pin, RESET);
 			break;
 		default:
 			break;
@@ -155,8 +155,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  if(num>=13) num=1;
-	  clearAllClock();
-	  setNumberOnClock(num++);
+	  setAllClock();
+	  clearNumberOnClock(num++);
 	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */

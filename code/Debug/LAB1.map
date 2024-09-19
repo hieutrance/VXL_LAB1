@@ -1948,11 +1948,11 @@ LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  *(.text)
  .text          0x0800010c       0x40 C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.text*)
- .text.clearAllClock.0
+ .text.setAllClock.0
                 0x0800014c       0xa0 ./Core/Src/main.o
  .text.main     0x080001ec       0x48 ./Core/Src/main.o
                 0x080001ec                main
- .text.setNumberOnClock.1
+ .text.clearNumberOnClock.1
                 0x08000234       0xfc ./Core/Src/main.o
  .text.SystemClock_Config
                 0x08000330       0x76 ./Core/Src/main.o
