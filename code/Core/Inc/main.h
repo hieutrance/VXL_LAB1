@@ -83,8 +83,8 @@ void Error_Handler(void);
 #define d12_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
-void clearAllClock();
 void setNumberOnClock(int num);
+void clearNumberOnClock(int num);
 
 /* USER CODE END Private defines */
 
