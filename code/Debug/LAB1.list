@@ -342,27 +342,26 @@ int main(void)
  80002f4:	469c      	mov	ip, r3
  80002f6:	68f8      	ldr	r0, [r7, #12]
  80002f8:	f7ff ff28 	bl	800014c <setNumberOnClock.0>
-	  HAL_Delay(50);
- 80002fc:	2032      	movs	r0, #50	@ 0x32
- 80002fe:	f000 f9e1 	bl	80006c4 <HAL_Delay>
+	  HAL_Delay(1000);
+ 80002fc:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
+ 8000300:	f000 f9e0 	bl	80006c4 <HAL_Delay>
 	  clearNumberOnClock(second/5);
- 8000302:	687b      	ldr	r3, [r7, #4]
- 8000304:	4a07      	ldr	r2, [pc, #28]	@ (8000324 <main+0xe0>)
- 8000306:	fb82 1203 	smull	r1, r2, r2, r3
- 800030a:	1052      	asrs	r2, r2, #1
- 800030c:	17db      	asrs	r3, r3, #31
- 800030e:	1ad3      	subs	r3, r2, r3
- 8000310:	463a      	mov	r2, r7
- 8000312:	4694      	mov	ip, r2
- 8000314:	4618      	mov	r0, r3
- 8000316:	f000 f807 	bl	8000328 <clearNumberOnClock.1>
+ 8000304:	687b      	ldr	r3, [r7, #4]
+ 8000306:	4a07      	ldr	r2, [pc, #28]	@ (8000324 <main+0xe0>)
+ 8000308:	fb82 1203 	smull	r1, r2, r2, r3
+ 800030c:	1052      	asrs	r2, r2, #1
+ 800030e:	17db      	asrs	r3, r3, #31
+ 8000310:	1ad3      	subs	r3, r2, r3
+ 8000312:	463a      	mov	r2, r7
+ 8000314:	4694      	mov	ip, r2
+ 8000316:	4618      	mov	r0, r3
+ 8000318:	f000 f806 	bl	8000328 <clearNumberOnClock.1>
 	  ++second;
- 800031a:	687b      	ldr	r3, [r7, #4]
- 800031c:	3301      	adds	r3, #1
- 800031e:	607b      	str	r3, [r7, #4]
+ 800031c:	687b      	ldr	r3, [r7, #4]
+ 800031e:	3301      	adds	r3, #1
+ 8000320:	607b      	str	r3, [r7, #4]
 	  if(second >= 60){
- 8000320:	e7a2      	b.n	8000268 <main+0x24>
- 8000322:	bf00      	nop
+ 8000322:	e7a1      	b.n	8000268 <main+0x24>
  8000324:	66666667 	.word	0x66666667
 
 08000328 <clearNumberOnClock.1>:

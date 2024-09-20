@@ -85,6 +85,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 void setNumberOnClock(int num);
 void clearNumberOnClock(int num);
+void clearAllClock();
 
 /* USER CODE END Private defines */
 

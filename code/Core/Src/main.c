@@ -65,6 +65,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+
+	void clearAllClock(){};
 	void setNumberOnClock(int num){
 		switch(num){
 		case 1:
@@ -198,7 +200,7 @@ int main(void)
 	  if(hour>=12) hour=0;
 
 	  setNumberOnClock(hour);
-	  HAL_Delay(50);
+	  HAL_Delay(1000);
 	  clearNumberOnClock(second/5);
 	  ++second;
 
