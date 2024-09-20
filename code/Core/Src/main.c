@@ -66,7 +66,20 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 
-	void clearAllClock(){};
+	void clearAllClock(){
+		  HAL_GPIO_WritePin(d1_GPIO_Port , d1_Pin, RESET);
+		  HAL_GPIO_WritePin(d2_GPIO_Port , d2_Pin, RESET);
+		  HAL_GPIO_WritePin(d3_GPIO_Port , d3_Pin, RESET);
+		  HAL_GPIO_WritePin(d4_GPIO_Port , d4_Pin, RESET);
+		  HAL_GPIO_WritePin(d5_GPIO_Port , d5_Pin, RESET);
+		  HAL_GPIO_WritePin(d6_GPIO_Port , d6_Pin, RESET);
+		  HAL_GPIO_WritePin(d7_GPIO_Port , d7_Pin, RESET);
+		  HAL_GPIO_WritePin(d8_GPIO_Port , d8_Pin, RESET);
+		  HAL_GPIO_WritePin(d9_GPIO_Port , d9_Pin, RESET);
+		  HAL_GPIO_WritePin(d10_GPIO_Port , d10_Pin, RESET);
+		  HAL_GPIO_WritePin(d11_GPIO_Port , d11_Pin, RESET);
+		  HAL_GPIO_WritePin(d12_GPIO_Port , d12_Pin, RESET);
+	}
 	void setNumberOnClock(int num){
 		switch(num){
 		case 1:
@@ -200,7 +213,7 @@ int main(void)
 	  if(hour>=12) hour=0;
 
 	  setNumberOnClock(hour);
-	  HAL_Delay(1000);
+	  HAL_Delay(50);
 	  clearNumberOnClock(second/5);
 	  ++second;
 
