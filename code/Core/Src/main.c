@@ -202,16 +202,19 @@ int main(void)
 		  clearNumberOnClock(second/5);
 		  ++minute;
 	  }
-	  setNumberOnClock(second/5);
+
 
 	  if(minute >=60){
 		  minute=0;
 		  clearNumberOnClock(hour/5);
 		  ++hour;
 	  }
-	  setNumberOnClock(minute/5);
+
 	  if(hour>=12) hour=0;
 
+	  clearAllClock();
+	  setNumberOnClock(second/5);
+	  setNumberOnClock(minute/5);
 	  setNumberOnClock(hour);
 	  HAL_Delay(50);
 	  clearNumberOnClock(second/5);
