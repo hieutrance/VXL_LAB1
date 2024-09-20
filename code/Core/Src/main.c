@@ -198,7 +198,7 @@ int main(void)
 	  if(hour>=12) hour=0;
 
 	  setNumberOnClock(hour);
-	  HAL_Delay(1000);
+	  HAL_Delay(50);
 	  clearNumberOnClock(second/5);
 	  ++second;
 
